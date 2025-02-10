@@ -26,16 +26,19 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             width: 100%;
+            opacity: 0; /* Initially hidden for animation */
         }
 
         h1 {
             font-size: 36px;
             color: #4CAF50;
+            opacity: 0; /* Initially hidden for animation */
         }
 
         p {
             font-size: 18px;
             color: #555;
+            opacity: 0; /* Initially hidden for animation */
         }
 
         .btn {
@@ -48,6 +51,7 @@
             text-decoration: none;
             margin-top: 20px;
             transition: background-color 0.3s;
+            opacity: 0; /* Initially hidden for animation */
         }
 
         .btn:hover {
@@ -59,8 +63,11 @@
             bottom: 10px;
             font-size: 14px;
             color: #888;
+            opacity: 0; /* Initially hidden for animation */
         }
     </style>
+    <!-- Include GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
 </head>
 <body>
 
@@ -73,8 +80,28 @@
     <div class="footer">
         <p>&copy; LINGESH 
             DEVOPS & 6382857241
-</p>
+        </p>
     </div>
+
+    <script>
+        // GSAP animations
+        window.onload = function () {
+            // Fade in the container with a slide-up effect
+            gsap.to(".container", { opacity: 1, y: 0, duration: 1, ease: "power3.out" });
+
+            // Fade in the h1 title with a slight delay
+            gsap.to("h1", { opacity: 1, x: 0, duration: 1, delay: 0.5, ease: "power3.out" });
+
+            // Fade in the paragraph with a delay
+            gsap.to("p", { opacity: 1, y: 0, duration: 1, delay: 1, ease: "power3.out" });
+
+            // Fade in the button with a delay
+            gsap.to(".btn", { opacity: 1, y: 0, duration: 1, delay: 1.5, ease: "power3.out" });
+
+            // Fade in the footer with a delay
+            gsap.to(".footer", { opacity: 1, y: 0, duration: 1, delay: 2, ease: "power3.out" });
+        };
+    </script>
 
 </body>
 </html>
